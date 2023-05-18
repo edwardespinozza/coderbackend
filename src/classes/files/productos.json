@@ -1,0 +1,61 @@
+[{
+        "id": 1,
+        "nombre": "Camiseta básica",
+        "descripcion": "Camiseta de algodón, cuello redondo, varios colores",
+        "precio": 19.99
+    },
+    {
+        "id": 2,
+        "nombre": "Pantalones vaqueros",
+        "descripcion": "Vaqueros ajustados, lavado oscuro, estilo moderno",
+        "precio": 49.99
+    },
+    {
+        "id": 3,
+        "nombre": "Jersey de punto",
+        "descripcion": "Jersey suave y cálido, cuello alto, color gris",
+        "precio": 39.99
+    },
+    {
+        "id": 4,
+        "nombre": "Vestido floral",
+        "descripcion": "Vestido estampado de flores, estilo femenino",
+        "precio": 59.99
+    },
+    {
+        "id": 5,
+        "nombre": "Chaqueta de cuero",
+        "descripcion": "Chaqueta de cuero sintético, cierre de cremallera",
+        "precio": 79.99
+    },
+    {
+        "id": 6,
+        "nombre": "Camisa a rayas",
+        "descripcion": "Camisa de manga larga, rayas verticales, varios colores",
+        "precio": 29.99
+    },
+    {
+        "id": 7,
+        "nombre": "Zapatos deportivos",
+        "descripcion": "Zapatillas deportivas, suela de goma, cómodas",
+        "precio": 69.99
+    },
+    {
+        "id": 8,
+        "nombre": "Falda plisada",
+        "descripcion": "Falda midi plisada, tejido ligero, color negro",
+        "precio": 34.99
+    },
+    {
+        "id": 9,
+        "nombre": "Abrigo de invierno",
+        "descripcion": "Abrigo acolchado, capucha desmontable, color verde",
+        "precio": 89.99
+    },
+    {
+        "id": 10,
+        "nombre": "Gorra de béisbol",
+        "descripcion": "Gorra de algodón, ajustable, logotipo bordado",
+        "precio": 14.99
+    }
+]
