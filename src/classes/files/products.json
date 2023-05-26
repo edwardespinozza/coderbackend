@@ -1,0 +1,26 @@
+[
+	{
+		"title": "iphone 14 2023",
+		"description": "Cancelación de ruido, conexión Bluetooth",
+		"code": "ABC456",
+		"price": 16000,
+		"status": true,
+		"stock": 5,
+		"category": "Audio",
+		"thumbnails": [
+			"https://ejemplo.com/imagen3.jpg",
+			"https://ejemplo.com/imagen4.jpg"
+		],
+		"id": "f85638f5-2a54-4809-99f4-4ae2b6e9ab1f"
+	},
+	{
+		"title": "telefonito",
+		"description": "Cancelación de ruido, conexión Bluetooth",
+		"code": "ABC456",
+		"price": 129,
+		"status": true,
+		"stock": 5,
+		"category": "Audio",
+		"id": "cd61fb1d-6402-4e8a-9849-bfa5b05b2234"
+	}
+]
