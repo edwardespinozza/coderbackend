@@ -36,14 +36,6 @@ export default class ProductsManager {
         return productoBorrado;
     };
     
-/*     borrarProductos = async(id) => {
-        const productos = await this.consultarProductos()
-        const productosFiltrados = productos.filter((producto)=>{
-            return producto.id != id
-        })
-        await fs.promises.writeFile(path, JSON.stringify(productosFiltrados,null,'\t'))
-    }; */
-
     consultarProductoPorId = async(id) => {
         const productos = await this.consultarProductos()
         const productoBuscado = productos.find((producto)=>{
