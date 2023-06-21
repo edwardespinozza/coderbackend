@@ -22,5 +22,13 @@
 		"stock": 5,
 		"category": "Audio",
 		"id": "cd61fb1d-6402-4e8a-9849-bfa5b05b2234"
+	},
+	{
+		"title": "producto 100",
+		"id": "8ca59820-d5ef-4e77-afa0-85f268897def"
+	},
+	{
+		"title": "66",
+		"id": "f985e703-90a3-4f01-9c41-e3ae94a9f11c"
 	}
 ]

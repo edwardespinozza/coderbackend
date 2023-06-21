@@ -1,0 +1,37 @@
+<h1>Crear producto:</h1>
+<div>
+    <input type="text" id="crearTitle">
+    <button id="crearSend">Crear</button>
+</div>
+<br>
+<br>
+<h1>Eliminar producto:</h1>
+<div>
+    <input type="text" id="eliminarId">
+    <button id="eliminarSend">Eliminar</button>
+</div>
+<br>
+<br>
+{{!-- <h1>Eliminar producto por ID:</h1>
+
+<form action="/delete" method="delete">
+    <label for="title">ID:</label>
+    <br>
+    <input type="text" id="title" name="title" required>
+    <br>
+    <input type="submit" value="Eliminar Producto">
+</form>
+--}}
+
+<h1>Lista de productos:</h1>
+<div id="listaProductos">
+    {{#each products}}
+        <h3>Producto: {{this.title}}</h3>
+        <p>Descripci[on: {{this.description}}</p>
+        <p>Id: {{this._id}}</p>
+        <br>
+    {{/each}}   
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/realTimeProducts.js"></script>
