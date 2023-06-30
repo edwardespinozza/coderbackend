@@ -6,8 +6,12 @@ const router = Router()
 const managerProducts = new ProductsManager()
 
 router.get('/',async (req, res)=>{
-    const limit = req.query.limit
-    const products = await managerProducts.consultarProductos(limit)
+    const limit = req.query.limit;
+    const page  = req.query.page;
+    const sort = req.query.sort;
+    const filtro = req.query.filtro;
+    const filtroValor = req.query.filtroValor;
+    const products = await managerProducts.consultarProductos(limit, page, sort, filtro, filtroValor);
     res.send(products)
 })
 

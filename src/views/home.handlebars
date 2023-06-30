@@ -1,12 +1,13 @@
 <h1>Lista de productos:</h1>
-
+<hr>
 {{#each products}}
-    <h3>{{this.title}}</h3>
-    <p>{{this.description}}</p>
-    <p>{{this.code}}</p>
-    <p>{{this.price}}</p>
-    <p>{{this.stock}}</p>
-    <p>{{this.category}}</p>
-    <p>{{this.id}}</p>
-    <br>
+    <h3>Producto: {{this.title}}</h3>
+    <p>Descripción: {{this.description}}</p>
+    <p>{{this._id}}</p>
+    <button data-id="{{this._id}}">Agregar al carrito</button>
+    <hr>
 {{/each}}
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/cliente.js"></script>

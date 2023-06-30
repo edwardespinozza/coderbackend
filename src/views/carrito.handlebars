@@ -1,0 +1,12 @@
+<h1>Carrito de compras:</h1>
+<hr>
+{{#each products}}
+    <h3>Producto: {{this.product.title}}</h3>
+    <p>Descripción: {{this.product.description}}</p>
+    <p>{{this._id}}</p>
+    <hr>
+{{/each}}
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/cliente.js"></script>

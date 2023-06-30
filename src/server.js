@@ -3,6 +3,8 @@ import routerProducts from "./routes/products.router.js";
 import routerCart from "./routes/cart.router.js";
 import routerViews from "./routes/views.router.js";
 import handlebars from "express-handlebars";
+import exphbs from 'express-handlebars';
+
 import __dirname from "./utils.js";
 import { Server } from "socket.io";
 import ProductsManager from "./daos/mongodb/ProductManager.class.js";

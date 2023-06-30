@@ -14,7 +14,7 @@ export default class ManagerCarts {
     };
 
     consultarCartPorID = async (id) => {
-        const result = await cartModel.findOne({_id: id}).populate('products.product');
+        const result = await cartModel.findOne({_id: id});
         return result
     };
 
@@ -23,11 +23,24 @@ export default class ManagerCarts {
         return result
     };
 
-
     agregarProductoEnCarrito = async (idCart, idProduct) => {
         const product = await this.productManager.consultarProductoPorId(idProduct);
         const cart = await this.consultarCartPorID(idCart);
         cart.products.push({product: product});
+        await cart.save();
+        return;
+    };
+
+    borrarProductoDelCarrito = async (idCart, idProduct) => {
+        const cart = await this.consultarCartPorID(idCart);
+        cart.products.pull(idProduct);
+        await cart.save();
+        return;
+    };
+
+    vaciarCarrito = async (idCart) => {
+        const cart = await this.consultarCartPorID(idCart);
+        cart.products = [];
         await cart.save();
         return;
     }
