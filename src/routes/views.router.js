@@ -19,28 +19,32 @@ router.get('/realtimeproducts',async (req, res)=>{
     res.render('realTimeProducts', {products})    
 })
 
-/* router.get('/products',async (req, res)=>{
-    const products = await managerProducts.consultarProductos()
-    const productPlanos = products.toObject()
-    console.log(productPlanos);
-    res.render('home', {products})
-}) */
-
 router.get('/products', async (req, res) => {
     const { docs } = await managerProducts.consultarProductos();
     const products = docs.map((doc) => doc.toObject());
-    res.render('home', { products });
+    res.render('home', { products, user: req.session.user});
 });
 
 
 router.get('/carrito/:cid',async (req, res)=>{
     const cid = req.params.cid;
     const cart = await managerCarts.consultarCartPorID(cid);
-    console.log(cart);
-    console.log('ese fue el carrito');
     const cartPlano = cart.toObject()
     const products = cartPlano.products
     res.render('carrito', {products})
 })
+
+router.get('/register', (req, res) => {
+    res.render('register');
+})
+
+router.get('/login', (req, res) => {
+    res.render('login');
+})
+
+router.get('/', (req, res) => {
+    res.render('profile', { user: req.session.user });
+})
+
 
 export default router;
