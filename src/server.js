@@ -12,6 +12,8 @@ import routerProducts from "./routes/products.router.js";
 import routerCart from "./routes/cart.router.js";
 import routerViews from "./routes/views.router.js";
 import sessionRouter from "./routes/session.router.js";
+import { initializePassport } from "./config/passport.config.js";
+import passport from "passport";
 
 const managerProducts = new ProductsManager()
 const app = express();
@@ -60,6 +62,9 @@ const connection = mongoose.connect(
     'mongodb+srv://edw2503:edw2503@cluster0.qmok5ox.mongodb.net/?retryWrites=true&w=majority',
     {useNewUrlParser: true, useUnifiedTopology: true }
 )
+
+initializePassport()
+
 app.use(session({
     store: new MongoStore({
         mongoUrl: 'mongodb+srv://edw2503:edw2503@cluster0.qmok5ox.mongodb.net/?retryWrites=true&w=majority',
@@ -69,9 +74,10 @@ app.use(session({
     saveUninitialized: false
 }))
 
+app.use(passport.initialize())
 
 app.use("/", routerViews);
 app.use('/products/', routerProducts);
 app.use('/carts/', routerCart);
 
-app.use('/api/sessions', sessionRouter)
+app.use('/api/session', sessionRouter)
