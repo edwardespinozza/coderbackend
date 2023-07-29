@@ -14,9 +14,6 @@ import routerViews from "./routes/views.router.js";
 import sessionRouter from "./routes/session.router.js";
 import { initializePassport } from "./config/passport.config.js";
 import passport from "passport";
-import cookieParser from "cookie-parser";
-import { initializePassportJWT } from "./config/jwt.passport.js";
-import { initializePassportLocal } from "./config/local.passport.js";
 
 const managerProducts = new ProductsManager()
 const app = express();
@@ -24,11 +21,6 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
-
-app.use(cookieParser())
-initializePassportJWT()
-initializePassportLocal()
-app.use(passport.initialize())
 
 const httpServer = app.listen(8080, () => {console.log('Servidor levantado')})
 

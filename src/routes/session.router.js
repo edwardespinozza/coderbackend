@@ -2,48 +2,28 @@ import { Router } from "express";
 import { createHash, validatePassword } from "../utils.js";
 import userModel from "../daos/mongodb/models/user.model.js";
 import passport from "passport";
+import jwt from "jsonwebtoken";
 
 const router = Router()
 
-router.post('/register', async (req,res)=>{
-    const {first_name, last_name, email, age, password, role} = req.body
-    const exist = await userModel.findOne({email});
+router.post(
+    '/register',
+    passport.authenticate('register', { session: false }),
+    async (req,res)=>{
+        res.send({status: 'success', message: 'usuario registrado'});
+    }
+);
 
-    if (exist) return res.status(400).send({status: 'error', message: 'Usuario ya registrado'})
-    let result = await userModel.create({
-        first_name,
-        last_name,
-        email,
-        age,
-        password: createHash(password),
-        role
-    });
-    res.send({status: 'success', message: 'usuario registrado'})
+router.post('/login', passport.authenticate("login", { session: false }), async (req,res) => {
+    let token = jwt.sign({email: req.body.email, age: '900'}, 'codeSecret', {expiresIn: '24h'});
+    res.cookie('coderCookie', token, {httpOnly: true}).send({status: 'success'})
 });
 
-router.post('/login', async (req,res) => {
-    const {email, password } = req.body;
-    const user = await userModel.findOne({email: email})
-    console.log(`el usuario es ${user}`);
-    if (!user) {
-        return res.status(400).send({ status: 'error', message: 'usuario o contraseña incorrecta' });
-    }
-    if (!validatePassword(password, user)) {
-        return res.status(400).send({ status: 'error', message: 'usuario o contraseña incorrecta' });
-    }
-    if (email === 'adminCoder@coder.com' && password === 'adminCod3r123') {
-        user.role = 'admin';
-    }
-    
-    req.session.user = {
-        name: `${user.first_name} ${user.last_name}`,
-        email: user.email,
-        age: user.age,
-        role: user.role
-    };
-    res.send({status: 'success', message: req.session.user})
-    
+router.get('/current', passport.authenticate("jwt", { session: false }), (req,res) => {
+    res.send(req.user);
 })
+
+
 
 router.get('/logout', (req, res) => {
     req.session.destroy((err) => {
